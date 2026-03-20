@@ -1,3 +1,9 @@
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
 ai:
   provider: ${AI_PROVIDER:openai}
   model: ${AI_MODEL:gpt-4o-mini}
