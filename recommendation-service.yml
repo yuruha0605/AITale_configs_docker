@@ -1,0 +1,10 @@
+ai:
+  provider: ${AI_PROVIDER:openai}
+  model: ${AI_MODEL:gpt-4o-mini}
+  timeout-ms: ${AI_TIMEOUT_MS:10000}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,refresh,busrefresh

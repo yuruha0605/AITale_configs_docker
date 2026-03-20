@@ -1,0 +1,74 @@
+eureka:
+  client:
+    enabled: true
+
+spring:
+  cloud:
+    gateway:
+      # cores 처리
+      # 각 service module은 web browser와 직접 통신하지 않으므로 단일진입점인 gateway 담당
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: 
+              - 'http://localhost:3000'
+            allowedMethods: '*'
+            allowedHeaders: '*'
+            exposedHeaders: '*'
+            allowCredentials: true
+      # Eureka Server에 등록된 client를 찾아서 사용자의 url_pattern을 매핑하는 작업
+      routes:
+        # User
+        - id: user-service
+          predicates:
+            - Path=/user-service/**
+          filters:
+            # 첫번째 접두어를 제거
+            # Browser : http://server.mhpark0605.shop/user-service/users/signIn
+            # Inner   : http://server.mhpark0605.shop/users/signIn
+            - StripPrefix=1
+          uri: http://user-service
+
+        # STORY
+        - id: story-service
+          predicates:
+            - Path=/story-service/**
+          filters:
+            - StripPrefix=1
+          uri: http://story-service
+
+        # Learning
+        - id: learning-service
+          predicates:
+            - Path=/learning-service/**
+          filters:
+            - StripPrefix=1
+          uri: http://learning-service
+
+        # Gamification
+        - id: gamification-service
+          predicates:
+            - Path=/gamification-service/**
+          filters:
+            - StripPrefix=1
+          uri: http://gamification-service
+        
+        # Analytics
+        - id: analytics-service
+          predicates:
+            - Path=/analytics-service/**
+          filters:
+            - StripPrefix=1
+          uri: http://analytics-service
+        
+        # Recommendation
+        - id: recommendation-service
+          predicates:
+            - Path=/recommendation-service/**
+          filters:
+            - StripPrefix=1
+          uri: http://recommendation-service
+
+
+jwt:
+  secret: aitale-super-secret-key-for-miniproj-123456789

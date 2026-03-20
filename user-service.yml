@@ -1,0 +1,2 @@
+jwt:
+  secret: aitale-super-secret-key-for-miniproj-123456789
