@@ -1,37 +1,19 @@
-cloud:
-  bus:
-    enabled: true
+﻿spring:
+  cloud:
+    bus:
+      enabled: true
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      timeout: 6000ms
 
 eureka:
   client:
     enabled: true
-
-spring:
-  datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${DB_HOST:localhost}:3306/inspire?useSSL=false&requireSSL=false  
-    username: ${DB_ADMIN:root}  
-    password: ${DB_PASSWORD:password}
-
-  jpa:
-    database: mysql
-    database-platform: org.hibernate.dialect.MariaDBDialect
-    generate-ddl: true
-    hibernate: 
-        ddl-auto: create
-    show-sql: true
-  
-  data:
-    redis:
-      host: localhost
-      port: 6379
-      password: 
-      timeout: 6000ms
-
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-
-  

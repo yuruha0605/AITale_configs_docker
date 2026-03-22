@@ -1,8 +1,30 @@
+﻿server:
+  port: 8080
+
 eureka:
   client:
     enabled: true
     serviceUrl:
-      defaultZone: http://eureka:8761/eureka/
+      defaultZone: ${EUREKA_DEFAULT_ZONE:http://eureka-server:8761/eureka/}
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${USER_DB_HOST:${DB_HOST:localhost}}:${USER_DB_PORT:${DB_PORT:3306}}/${USER_DB_NAME:${DB_NAME:lgcns}}
+    username: ${USER_DB_USERNAME:${DB_USERNAME:root}}
+    password: ${USER_DB_PASSWORD:${DB_PASSWORD:123456789}}
+  sql:
+    init:
+      mode: always
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+        format_sql: true
 
 jwt:
-  secret: aitale-super-secret-key-for-miniproj-123456789
+  secret: ${JWT_SECRET:user-service-local-secret}

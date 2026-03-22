@@ -1,8 +1,33 @@
+﻿server:
+  port: 8080
+
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${LEARNING_DB_HOST:${DB_HOST:localhost}}:${LEARNING_DB_PORT:${DB_PORT:3306}}/${LEARNING_DB_NAME:${DB_NAME:learning}}?useSSL=false&serverTimezone=UTC
+    username: ${LEARNING_DB_USERNAME:${DB_USERNAME:root}}
+    password: ${LEARNING_DB_PASSWORD:${DB_PASSWORD:123456789}}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MariaDBDialect
+
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+
 eureka:
   client:
-    enabled: true
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+
+ai:
+  service:
+    url: ${AI_SERVICE_URL:localhost:9000}
 
 management:
   endpoints:
