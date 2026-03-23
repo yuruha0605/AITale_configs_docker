@@ -2,3 +2,5 @@ ai:
   provider: openai
   model: gpt-4o-mini
   timeout-ms: 10000
+  service:
+    url: http://localhost:9000
