@@ -3,12 +3,12 @@
 
 spring:
   kafka:
-    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    bootstrap-servers: localhost:9092
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${LEARNING_DB_HOST:${DB_HOST:localhost}}:${LEARNING_DB_PORT:${DB_PORT:3306}}/${LEARNING_DB_NAME:${DB_NAME:learning}}?useSSL=false&serverTimezone=UTC
-    username: ${LEARNING_DB_USERNAME:${DB_USERNAME:root}}
-    password: ${LEARNING_DB_PASSWORD:${DB_PASSWORD:123456789}}
+    url: jdbc:mariadb://localhost:3306/learning?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456789
   jpa:
     hibernate:
       ddl-auto: update
@@ -22,12 +22,13 @@ springfox:
 
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    enabled: true
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
 
 ai:
   service:
-    url: ${AI_SERVICE_URL:localhost:9000}
+    url: http://localhost:9000
 
 management:
   endpoints:

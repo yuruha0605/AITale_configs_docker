@@ -5,10 +5,19 @@ eureka:
   client:
     enabled: true
     serviceUrl:
-      defaultZone: ${EUREKA_DEFAULT_ZONE:http://localhost:8761/eureka/}
+      defaultZone: http://eureka-server:8761/eureka/
+
+public-data:
+  story:
+    url: https://www.culture.go.kr/openapi/rest/publicstory/list
+    service-key: c59a0de8-2688-47b3-a19d-0f41f7f45db9
 
 management:
   endpoints:
     web:
       exposure:
         include: health,info,refresh,busrefresh
+
+springdoc:
+  swagger-ui:
+    config-url: /story-service/v3/api-docs/swagger-config

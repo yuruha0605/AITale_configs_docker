@@ -2,7 +2,7 @@ eureka:
   client:
     enabled: true
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
 
 spring:
   cloud:
@@ -74,3 +74,26 @@ spring:
 
 jwt:
   secret: aitale-super-secret-key-for-miniproj-123456789
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    disable-swagger-default-url: true
+    urls:
+      - name: api-gateway
+        url: /v3/api-docs
+      - name: user-service
+        url: /user-service/v3/api-docs
+      - name: story-service
+        url: /story-service/v3/api-docs
+      - name: learning-service
+        url: /learning-service/v3/api-docs
+      - name: gamification-service
+        url: /gamification-service/v3/api-docs
+      - name: analytics-service
+        url: /analytics-service/v3/api-docs
+      - name: recommendation-service
+        url: /recommendation-service/v3/api-docs
