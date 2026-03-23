@@ -56,6 +56,13 @@ spring:
             - StripPrefix=1
           uri: lb://recommendation-service
 
+        - id: ai-service
+          predicates:
+            - Path=/ai-service/**
+          filters:
+            - StripPrefix=1
+          uri: lb://ai-service
+
 jwt:
   secret: aitale-super-secret-key-for-miniproj-123456789
 
@@ -81,3 +88,5 @@ springdoc:
         url: /analytics-service/v3/api-docs
       - name: recommendation-service
         url: /recommendation-service/v3/api-docs
+      - name: ai-service
+        url: /ai-service/v3/api-docs
