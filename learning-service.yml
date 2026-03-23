@@ -10,3 +10,7 @@ springfox:
 ai:
   service:
     url: http://localhost:9000
+
+openai:
+  api-key: ${OPENAI_API_KEY:}
+  url: https://api.openai.com/v1/chat/completions
