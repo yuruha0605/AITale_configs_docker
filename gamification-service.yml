@@ -1,2 +1,23 @@
-﻿# Gamification Service - uses common settings from application.yml
+﻿spring:
+  application:
+    name: gamification-service
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
 
