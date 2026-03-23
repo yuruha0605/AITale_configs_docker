@@ -1,16 +1,4 @@
-eureka:
-  client:
-    enabled: true
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka/
-
 ai:
   provider: openai
   model: gpt-4o-mini
   timeout-ms: 10000
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,refresh,busrefresh

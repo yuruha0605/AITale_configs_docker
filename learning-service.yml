@@ -1,7 +1,4 @@
-﻿server:
-  port: 8080
-
-spring:
+﻿spring:
   kafka:
     bootstrap-servers: localhost:9092
 
@@ -10,18 +7,6 @@ springfox:
     swagger-ui:
       enabled: true
 
-eureka:
-  client:
-    enabled: true
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka/
-
 ai:
   service:
     url: http://localhost:9000
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,refresh,busrefresh
