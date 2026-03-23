@@ -8,23 +8,9 @@ eureka:
       defaultZone: http://eureka-server:8761/eureka/
 
 spring:
-  datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/lgcns
-    username: root
-    password: 123456789
   sql:
     init:
       mode: always
-  jpa:
-    defer-datasource-initialization: true
-    hibernate:
-      ddl-auto: create
-    show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MariaDBDialect
-        format_sql: true
 
 jwt:
-  secret: user-service-local-secret
+  secret: aitale-super-secret-key-for-miniproj-123456789
